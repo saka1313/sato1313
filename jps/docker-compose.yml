@@ -1,0 +1,31 @@
+version: "3"
+services:
+  jps_db:
+    image: postgres:9.6
+    container_name: "jps_db"
+    ports:
+      - 1313:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+    tty: true
+    restart: always
+    user: root
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - jps_db:/var/lib/postgresql/data
+
+volumes:
+  jps_db:
+    external: false
+
+
+
+
+
+
+
+
+
+
+
